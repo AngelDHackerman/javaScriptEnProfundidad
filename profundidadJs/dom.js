@@ -80,10 +80,12 @@ console.groupEnd();
 
 let id = document.querySelector('#encabezado');
 let claseRojo = document.querySelectorAll('.rojo');
+const claseRojoAsArray = [...claseRojo]; //Asi converitimos un nodeList a Array;
 
 console.group(`Query selector`);
   console.log(id); // console.log(id.innerHTML);
-  console.log(claseRojo); 
+  console.log(claseRojo, 'clase rojo siendo un Node List'); 
+  console.log(claseRojoAsArray, 'Clase rojo pero convertido a Array');
 console.groupEnd();
 
 
