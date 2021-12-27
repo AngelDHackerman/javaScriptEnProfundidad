@@ -47,9 +47,8 @@ entrandoAlDiv2.style.background = 'blue';
 
           //crear etiquetas en HTML y manipulando su contenido;
 
-let valor;
 
-for (valor in todosLosDivs) { 
+for (let valor in todosLosDivs) { 
   if ( typeof todosLosDivs[valor].textContent == 'string' ) {
     let parrafo = document.createElement('p');
     let texto = document.createTextNode(todosLosDivs[valor].textContent);//textContent extrae el string que contiene el elemento
@@ -61,5 +60,30 @@ for (valor in todosLosDivs) {
 console.groupEnd();
 
       //Conseguir elementos por CLASE
+console.group(`Conseguir elementos por CLASE`);
+
+let divsRojos = document.querySelectorAll('.rojo');
+let divsAmarillos = document.querySelectorAll('.amarillo');
+divsAmarillos[0].style.backgroundColor = 'yellow';
+
+for (let divs in divsRojos )  { //con esto cambiamos el color de background de los divs
+  if (divsRojos[divs].className == 'rojo') { 
+    divsRojos[divs].style.backgroundColor = 'red';
+  }
+}
+  console.log(divsRojos);
+  console.log(divsAmarillos);
+
+console.groupEnd();
+
+      //Query selector
+
+let id = document.querySelector('#encabezado');
+let claseRojo = document.querySelectorAll('.rojo');
+
+console.group(`Query selector`);
+  console.log(id); // console.log(id.innerHTML);
+  console.log(claseRojo); 
+console.groupEnd();
 
 
