@@ -30,6 +30,8 @@ window.addEventListener('load', () => {
             //Evento Click
   boton.addEventListener('click', (() => { //se usa una funcion de callBack para ejecutar la funcion que necesitamos
     cambiarColor();
+    console.log(window);
+    boton.style.border = "10px solid black"
   }));
 
             //Evento Mouse over 
