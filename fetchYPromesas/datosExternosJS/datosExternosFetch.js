@@ -22,11 +22,13 @@ fetch('https://reqres.in/api/users')
     }) */
 
     usuarios.forEach(element => {
-      let nombre = document.createElement('h2');
+      let nombre = document.createElement('h3');
       nombre.innerHTML = `${element.first_name} ${element.last_name}`;
       
       //console.log(`${element.first_name} ${element.last_name}`);
       divUsuarios.appendChild(nombre);
+
+      document.querySelector('.loading').style.display = 'none';// Muestra un mensaje de cargando mientras la peticion se hace, una vez hecha el 'cargando' se desaparece
     });
   });
   
