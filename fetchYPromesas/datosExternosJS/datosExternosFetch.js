@@ -28,7 +28,7 @@ fetch('https://reqres.in/api/users')
       //console.log(`${element.first_name} ${element.last_name}`);
       divUsuarios.appendChild(nombre);
 
-      document.querySelector('.loading').style.display = 'none';// Muestra un mensaje de cargando mientras la peticion se hace, una vez hecha el 'cargando' se desaparece
+      document.querySelector('.loading').style.display = 'none';
     });
   });
   
