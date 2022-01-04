@@ -4,7 +4,8 @@ window.addEventListener('load', () => {
 // Fetch (ajax) y peticiones a servicios / API's rest
 
 let divUsuarios = document.querySelector('#usuarios');
-let divJanet = document.querySelector('#janet');
+let divJanet = document.querySelector('#profesor');
+let divProfesor = document.querySelector('#janet');
 
 
 const getUsuarios = () => { 
@@ -15,17 +16,47 @@ const getJanet = () => {
   return fetch ('https://reqres.in/api/users/2');
 }
 
+const getInfo = () => { 
+  let profesor = {
+    nombre: 'Victor',
+    apellidos: 'Robles',
+    url: 'https://victorroblesweb.es',
+  };
+  return new Promise ((resolve, reject) => { 
+    let profersorString = '';
+    
+    setTimeout(() => {
+      profersorString = JSON.stringify(profesor); //Asi convertimos el objeto a un string de JSON
+
+      if (typeof profersorString != 'string' || profersorString == '') return reject('error 1 !!!');
+        return resolve(profersorString);
+    }, 3000);
+
+  })
+};
+
+
+
 getUsuarios()
   .then(data => data.json())
   .then(users => { 
     listadoUsuraios(users.data);
 
+    return getInfo();
+  })
+  .then(data => {
+    divProfesor.innerHTML = data;
     return getJanet();
   })
   .then(data => data.json())
   .then(user => { 
     mostrarJanet(user.data)
-  });
+
+  })
+  .catch(error => {
+    console.error(error, `Este es el error`); 
+    alert('Error con las peticiones')
+  })
 
 
 /*   function getUsuarios () { //Esta funciona igual que la arrow funtion y no le afecta el hoisting 
@@ -55,8 +86,16 @@ getUsuarios()
       divJanet.appendChild(nombre);
       divJanet.appendChild(avatar);
 
-      document.querySelector('#janet .loading').style.display = 'none';
   };
+
+
+
+
+
+
+
+
+
 
 });
   
