@@ -20,6 +20,11 @@ let textoHora = `
 console.log(textoHora);
 
 
+              //Math en javaScript
+
+
+console.log(Math.random() * 100); //.random crea numeros random
+console.log(Math.ceil(Math.random() * 10000)) //.ceil eleva el numero decimal al entero que esta arriba.
 
 
 
